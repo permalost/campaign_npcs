@@ -12,12 +12,12 @@ class NPC extends Component {
     return (
       <div>
         <div>
-          <img src={npc.thumbnail} alt={npc.name} width="100" />
+          <img src={npc.thumbnail} alt={npc.name} width="200" />
+          <h3>{npc.name}</h3>
+          <h5><b>Associations</b>: {npc.associations}</h5>
         </div>
         <div>
-          <h3>{npc.name}</h3>
-          <h5>Associations: {npc.associations}</h5>
-          <p>Notes:{npc.notes}</p>
+          <p><b>Notes</b>:{npc.notes}</p>
         </div>
       </div>
     );

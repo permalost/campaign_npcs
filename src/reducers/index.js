@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
+import NpcListReducer from './reducer_npc_list';
 
 const rootReducer = combineReducers({
-  state: (state = {}) => state
+  npcs: NpcListReducer
 });
 
 export default rootReducer;
