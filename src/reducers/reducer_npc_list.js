@@ -1,8 +1,16 @@
 import _ from 'lodash';
 import React from 'react';
 
+import { CREATE_NPC } from '../actions';
+
 export default function(state = _.mapKeys(npcs, 'name'), action) {
-  return state;
+  switch (action.type) {
+    case CREATE_NPC:
+      // return state;
+      return {...state, [action.payload.name]:action.payload };
+    default:
+      return state;
+  }
 }
 
 const npcs = [{
@@ -50,35 +58,34 @@ const npcs = [{
   thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-Darvayne.jpg",
   notes: "Darvayne Gios Amprei is one of many Chelish ambassadors who dwell in the city.",
   associations: "Chelish ambassador"
+},{
+  name: "Keppira",
+  thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-Keppira.jpg",
+  notes: "High priestess of the Cathedral of Pharasma, mysterious Keppira d'Bear is one of Korvosa's most powerful clerics.",
+  associations: "Cathedral of Pharasma"
+},{
+  name: "Marcus",
+  thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-Marcus.jpg",
+  notes: "Marcus Endrin is the leader of the Sable Company — Korvosa's elite hippogriff-mounted defenders.",
+  associations: "Sable Company"
+},{
+  name: "Ruan",
+  thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-Ruan.jpg",
+  notes: "Ruan Mirukova is a talented musician who finds his skills in rising demand for aristocratic galas.",
+  associations: "none"
+},{
+  name: "ThousandBones",
+  thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-ThousandBones.jpg",
+  notes: "Thousand Bones is a Shoanti shaman who has recently become a spokesperson for his people in Korvosa.",
+  associations: "Shoanti"
+},{
+  name: "Toff",
+  thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-Toff.jpg",
+  notes: "Toff Ornelos is the headmaster of Korvosa's world-renowned magical university, the Acadamae.",
+  associations: "Acadamae"
+},{
+  name: "Zenobia",
+  thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-Zenobia.jpg",
+  notes: "Arbiter Zenobia Zenderholm, known locally as the “Hanging Judge,” is well known among Korvosa's citizens for her harsh stance on criminal activity.",
+  associations: "Korvosan Guard"
 }];
-// ,{
-//   name: "Keppira",
-//   thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-Keppira.jpg",
-//   notes: "High priestess of the Cathedral of Pharasma, mysterious Keppira d'Bear is one of Korvosa's most powerful clerics.",
-//   associations: "Cathedral of Pharasma"
-// },{
-//   name: "Marcus",
-//   thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-Marcus.jpg",
-//   notes: "Marcus Endrin is the leader of the Sable Company — Korvosa's elite hippogriff-mounted defenders.",
-//   associations: "Sable Company"
-// },{
-//   name: "Ruan",
-//   thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-Ruan.jpg",
-//   notes: "Ruan Mirukova is a talented musician who finds his skills in rising demand for aristocratic galas.",
-//   associations: "none"
-// },{
-//   name: "ThousandBones",
-//   thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-ThousandBones.jpg",
-//   notes: "Thousand Bones is a Shoanti shaman who has recently become a spokesperson for his people in Korvosa.",
-//   associations: "Shoanti"
-// },{
-//   name: "Toff",
-//   thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-Toff.jpg",
-//   notes: "Toff Ornelos is the headmaster of Korvosa's world-renowned magical university, the Acadamae.",
-//   associations: "Acadamae"
-// },{
-//   name: "Zenobia",
-//   thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-Zenobia.jpg",
-//   notes: "Arbiter Zenobia Zenderholm, known locally as the “Hanging Judge,” is well known among Korvosa's citizens for her harsh stance on criminal activity.",
-//   associations: "Korvosan Guard"
-// }];

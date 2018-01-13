@@ -33,6 +33,10 @@ const styles = theme => ({
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
   },
+  btn: {
+    width: 100,
+    height: 20,
+  }
 });
 
 class NpcList extends Component {
@@ -73,6 +77,9 @@ class NpcList extends Component {
         >
           {this.renderList()}
         </GridList>
+        <div>
+          <Link to="/npcs/new" className="btn btn-primary">Add NPC</Link>
+        </div>
       </div>
     )
   }
@@ -86,4 +93,4 @@ NpcList.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(connect(mapStateToProps)(NpcList));
+export default connect(mapStateToProps)(withStyles(styles)(NpcList));

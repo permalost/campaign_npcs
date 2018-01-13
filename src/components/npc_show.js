@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-class NPC extends Component {
+class Npc extends Component {
   render() {
     const { npc } = this.props;
     return (
@@ -25,4 +25,4 @@ function mapStateToProps({ npcs }, ownProps) {
   return { npc: npcs[ownProps.match.params.id]};
 }
 
-export default connect(mapStateToProps)(NPC);
+export default connect(mapStateToProps)(Npc);
