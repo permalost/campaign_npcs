@@ -5,6 +5,8 @@ import { withStyles } from 'material-ui/styles';
 import { GridList, GridListTile, GridListTileBar } from 'material-ui/GridList';
 
 const cellHeight = 180;
+const cellWidth = 125;
+const gridListWidth = 750;
 
 const styles = theme => ({
   root: {
@@ -15,13 +17,13 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.paper,
   },
   gridList: {
-    width: 750,
+    width: gridListWidth,
     height: 500,
   },
   img: {
-    height: {cellHeight},
-    width: 125,
-    mode: "fit"
+    height: cellHeight,
+    width: cellWidth,
+    'object-fit': 'contain',
   }
 });
 
@@ -34,10 +36,7 @@ class NpcList extends Component {
       this.props.npcs.map((npc) =>
         <GridListTile key={npc.thumbnail}>
           <img src={npc.thumbnail} alt={npc.name} className={classes.img} />
-          <GridListTileBar
-            title={npc.name}
-            subtitle={npc.associations}
-           />
+          <GridListTileBar title={npc.name} subtitle={npc.associations} />
         </GridListTile>)
     );
   }
@@ -49,7 +48,7 @@ class NpcList extends Component {
         <GridList
           className={classes.gridList}
           cellHeight={cellHeight}
-          cols={6}
+          cols={gridListWidth/cellWidth}
         >
           {this.renderList()}
         </GridList>
