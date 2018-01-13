@@ -1,7 +1,8 @@
+import _ from 'lodash';
 import React from 'react';
 
-export default function() {
-  return npcs;
+export default function(state = _.mapKeys(npcs, 'name'), action) {
+  return state;
 }
 
 const npcs = [{
@@ -15,12 +16,12 @@ const npcs = [{
   notes: "Zellara Esmeranda is a talented Varisian fortune teller.",
   associations: "none"
 },{
-  name: "King Eodred Arabasti II",
+  name: "Eodred Arabasti II",
   thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-Eodred.jpg",
   notes: "King Eodred Arabasti II, ruler of Korvosa, is rumored to be in ill health.",
   associations: "King of Korvosa"
 },{
-  name: "Queen Ileosa Arabasti",
+  name: "Ileosa Arabasti",
   thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-IleosaPortrait.jpg",
   notes: "Queen Ileosa Arabasti's popularity in Korvosa among the commonfolk has never been strong—many see her as a petulant spoiled young woman.",
   associations: "Queen of Korvosa"
@@ -49,34 +50,35 @@ const npcs = [{
   thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-Darvayne.jpg",
   notes: "Darvayne Gios Amprei is one of many Chelish ambassadors who dwell in the city.",
   associations: "Chelish ambassador"
-},{
-  name: "Keppira",
-  thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-Keppira.jpg",
-  notes: "High priestess of the Cathedral of Pharasma, mysterious Keppira d'Bear is one of Korvosa's most powerful clerics.",
-  associations: "Cathedral of Pharasma"
-},{
-  name: "Marcus",
-  thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-Marcus.jpg",
-  notes: "Marcus Endrin is the leader of the Sable Company — Korvosa's elite hippogriff-mounted defenders.",
-  associations: "Sable Company"
-},{
-  name: "Ruan",
-  thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-Ruan.jpg",
-  notes: "Ruan Mirukova is a talented musician who finds his skills in rising demand for aristocratic galas.",
-  associations: "none"
-},{
-  name: "ThousandBones",
-  thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-ThousandBones.jpg",
-  notes: "Thousand Bones is a Shoanti shaman who has recently become a spokesperson for his people in Korvosa.",
-  associations: "Shoanti"
-},{
-  name: "Toff",
-  thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-Toff.jpg",
-  notes: "Toff Ornelos is the headmaster of Korvosa's world-renowned magical university, the Acadamae.",
-  associations: "Acadamae"
-},{
-  name: "Zenobia",
-  thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-Zenobia.jpg",
-  notes: "Arbiter Zenobia Zenderholm, known locally as the “Hanging Judge,” is well known among Korvosa's citizens for her harsh stance on criminal activity.",
-  associations: "Korvosan Guard"
 }];
+// ,{
+//   name: "Keppira",
+//   thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-Keppira.jpg",
+//   notes: "High priestess of the Cathedral of Pharasma, mysterious Keppira d'Bear is one of Korvosa's most powerful clerics.",
+//   associations: "Cathedral of Pharasma"
+// },{
+//   name: "Marcus",
+//   thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-Marcus.jpg",
+//   notes: "Marcus Endrin is the leader of the Sable Company — Korvosa's elite hippogriff-mounted defenders.",
+//   associations: "Sable Company"
+// },{
+//   name: "Ruan",
+//   thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-Ruan.jpg",
+//   notes: "Ruan Mirukova is a talented musician who finds his skills in rising demand for aristocratic galas.",
+//   associations: "none"
+// },{
+//   name: "ThousandBones",
+//   thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-ThousandBones.jpg",
+//   notes: "Thousand Bones is a Shoanti shaman who has recently become a spokesperson for his people in Korvosa.",
+//   associations: "Shoanti"
+// },{
+//   name: "Toff",
+//   thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-Toff.jpg",
+//   notes: "Toff Ornelos is the headmaster of Korvosa's world-renowned magical university, the Acadamae.",
+//   associations: "Acadamae"
+// },{
+//   name: "Zenobia",
+//   thumbnail: "http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-Zenobia.jpg",
+//   notes: "Arbiter Zenobia Zenderholm, known locally as the “Hanging Judge,” is well known among Korvosa's citizens for her harsh stance on criminal activity.",
+//   associations: "Korvosan Guard"
+// }];

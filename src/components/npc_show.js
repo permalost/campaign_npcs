@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class NPC extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { npc: props.npc };
-  }
-
   render() {
-    const { npc } = this.state;
+    const { npc } = this.props;
     return (
       <div>
         <div>
@@ -19,9 +15,14 @@ class NPC extends Component {
         <div>
           <p><b>Notes</b>:{npc.notes}</p>
         </div>
+        <Link to="/npcs" className="btn btn-primary">Return to list</Link>
       </div>
     );
   }
 }
 
-export default NPC;
+function mapStateToProps({ npcs }, ownProps) {
+  return { npc: npcs[ownProps.match.params.id]};
+}
+
+export default connect(mapStateToProps)(NPC);
