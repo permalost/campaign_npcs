@@ -18,7 +18,7 @@ ReactDOM.render(
     <BrowserRouter>
       <Switch>
         <Route path="/npcs/new" component={NpcNew} />
-        <Route path="/npcs/:id" component={Npc} />
+        <Route path="/npcs/:name" component={Npc} />
         <Route path="/npcs" component={NpcList} />
         <Route path="/" component={NpcList} />
       </Switch>

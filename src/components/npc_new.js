@@ -56,7 +56,7 @@ class NpcNew extends Component {
           rows={5}
         /><br />
         <button type="submit" className="btn btn-primary">Save</button>
-        <Link to="/npcs" className="btn btn-danger">Cancel</Link>
+        <Link to="/npcs" className="btn btn-danger pull-xs-right">Cancel</Link>
       </form>
     );
   }

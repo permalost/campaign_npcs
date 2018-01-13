@@ -1,13 +1,16 @@
 import _ from 'lodash';
 import React from 'react';
 
-import { CREATE_NPC } from '../actions';
+import { CREATE_NPC, DELETE_NPC } from '../actions';
 
 export default function(state = _.mapKeys(npcs, 'name'), action) {
   switch (action.type) {
     case CREATE_NPC:
-      // return state;
+      // payload == npc
       return {...state, [action.payload.name]:action.payload };
+    case DELETE_NPC:
+      // payload == name
+      return _.omit(state, action.payload);
     default:
       return state;
   }
