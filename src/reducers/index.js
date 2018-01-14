@@ -1,11 +1,11 @@
-import { combineReducers } from 'redux';
-import { reducer as FormReducer } from 'redux-form';
+import { combineReducers } from "redux";
+import { reducer as FormReducer } from "redux-form";
 
-import NpcListReducer from './reducer_npc_list';
+import NpcListReducer from "./reducer_npc_list";
 
 const rootReducer = combineReducers({
   npcs: NpcListReducer,
-  form: FormReducer,
+  form: FormReducer
 });
 
 export default rootReducer;

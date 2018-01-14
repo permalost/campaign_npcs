@@ -1,13 +1,13 @@
-import _ from 'lodash';
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import { GridList, GridListTile, GridListTileBar } from 'material-ui/GridList';
-import IconButton from 'material-ui/IconButton';
-import InfoIcon from 'material-ui-icons/Info';
-import Button from 'material-ui/Button';
+import _ from "lodash";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { withStyles } from "material-ui/styles";
+import { GridList, GridListTile, GridListTileBar } from "material-ui/GridList";
+import IconButton from "material-ui/IconButton";
+import InfoIcon from "material-ui-icons/Info";
+import Button from "material-ui/Button";
 
 const cellWidth = 200;
 const cellHeight = 1.4 * cellWidth;
@@ -15,55 +15,53 @@ const gridListWidth = 800;
 
 const styles = theme => ({
   root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
     overflow: "hidden",
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.paper
   },
   gridList: {
     width: gridListWidth,
-    height: 1000,
+    height: 1000
   },
   img: {
     height: cellHeight,
     width: cellWidth,
-    'object-fit': 'contain',
+    "object-fit": "contain"
   },
   icon: {
-    color: 'rgba(255, 255, 255, 0.54)',
+    color: "rgba(255, 255, 255, 0.54)"
   },
   btn: {
     width: 100,
-    height: 20,
+    height: 20
   }
 });
 
 class NpcList extends Component {
-
   onClick(event) {
-    const name = event.currentTarget.getAttribute('name');
+    const name = event.currentTarget.getAttribute("name");
     this.props.history.push(`/npcs/${name}`);
   }
 
   renderList() {
     const { classes, npcs } = this.props;
 
-    return (
-      _.map(npcs, (npc) =>
-        <GridListTile key={npc.thumbnail} >
-          <img src={npc.thumbnail} alt={npc.name} className={classes.img} />
-          <GridListTileBar
-            title={npc.name}
-            subtitle={npc.associations}
-            actionIcon={
-                <IconButton className={classes.icon}>
-                  <InfoIcon onClick={this.onClick.bind(this)} name={npc.name} />
-                </IconButton>
-              }
-            />
-        </GridListTile>)
-    );
+    return _.map(npcs, npc => (
+      <GridListTile key={npc.thumbnail}>
+        <img src={npc.thumbnail} alt={npc.name} className={classes.img} />
+        <GridListTileBar
+          title={npc.name}
+          subtitle={npc.associations}
+          actionIcon={
+            <IconButton className={classes.icon}>
+              <InfoIcon onClick={this.onClick.bind(this)} name={npc.name} />
+            </IconButton>
+          }
+        />
+      </GridListTile>
+    ));
   }
   render() {
     const { classes } = this.props;
@@ -73,15 +71,17 @@ class NpcList extends Component {
         <GridList
           className={classes.gridList}
           cellHeight={cellHeight}
-          cols={gridListWidth/cellWidth}
+          cols={gridListWidth / cellWidth}
         >
           {this.renderList()}
         </GridList>
         <div>
-          <Link to="/npcs/new" className="btn btn-primary">Add NPC</Link>
+          <Link to="/npcs/new" className="btn btn-primary">
+            Add NPC
+          </Link>
         </div>
       </div>
-    )
+    );
   }
 }
 
@@ -90,7 +90,7 @@ function mapStateToProps({ npcs }) {
 }
 
 NpcList.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default connect(mapStateToProps)(withStyles(styles)(NpcList));
