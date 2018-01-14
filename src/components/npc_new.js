@@ -1,27 +1,27 @@
-import _ from "lodash";
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Field, reduxForm } from "redux-form";
-import { Link } from "react-router-dom";
+import _ from 'lodash';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Field, reduxForm } from 'redux-form';
+import { Link } from 'react-router-dom';
 
-import { TextField } from "redux-form-material-ui";
-import { withStyles } from "material-ui/styles";
+import { TextField } from 'redux-form-material-ui';
+import { withStyles } from 'material-ui/styles';
 
-import { createNpc } from "../actions";
+import { createNpc } from '../actions';
 
 const styles = theme => ({
   root: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-around",
-    overflow: "hidden",
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    overflow: 'hidden',
     backgroundColor: theme.palette.background.paper
   }
 });
 
 class NpcNew extends Component {
   onSubmit(values) {
-    this.props.history.push("/npcs");
+    this.props.history.push('/npcs');
     return this.props.createNpc(values);
   }
 
@@ -42,7 +42,7 @@ class NpcNew extends Component {
           label="Associations"
           placeholder="Korvosan Guard"
           component={TextField}
-          validate={value => (value == null ? "Required" : undefined)}
+          validate={value => (value == null ? 'Required' : undefined)}
         />
         <br />
         <Field
@@ -71,7 +71,7 @@ class NpcNew extends Component {
   }
 }
 
-NpcNew = reduxForm({ form: "NpcNew" })(NpcNew);
+NpcNew = reduxForm({ form: 'NpcNew' })(NpcNew);
 
 NpcNew = connect(null, { createNpc })(NpcNew);
 

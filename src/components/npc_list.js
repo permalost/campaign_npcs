@@ -1,13 +1,13 @@
-import _ from "lodash";
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import { withStyles } from "material-ui/styles";
-import { GridList, GridListTile, GridListTileBar } from "material-ui/GridList";
-import IconButton from "material-ui/IconButton";
-import InfoIcon from "material-ui-icons/Info";
-import Button from "material-ui/Button";
+import _ from 'lodash';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { withStyles } from 'material-ui/styles';
+import { GridList, GridListTile, GridListTileBar } from 'material-ui/GridList';
+import IconButton from 'material-ui/IconButton';
+import InfoIcon from 'material-ui-icons/Info';
+import Button from 'material-ui/Button';
 
 const cellWidth = 200;
 const cellHeight = 1.4 * cellWidth;
@@ -15,10 +15,10 @@ const gridListWidth = 800;
 
 const styles = theme => ({
   root: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-around",
-    overflow: "hidden",
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    overflow: 'hidden',
     backgroundColor: theme.palette.background.paper
   },
   gridList: {
@@ -28,10 +28,10 @@ const styles = theme => ({
   img: {
     height: cellHeight,
     width: cellWidth,
-    "object-fit": "contain"
+    'object-fit': 'contain'
   },
   icon: {
-    color: "rgba(255, 255, 255, 0.54)"
+    color: 'rgba(255, 255, 255, 0.54)'
   },
   btn: {
     width: 100,
@@ -41,7 +41,7 @@ const styles = theme => ({
 
 class NpcList extends Component {
   onClick(event) {
-    const name = event.currentTarget.getAttribute("name");
+    const name = event.currentTarget.getAttribute('name');
     this.props.history.push(`/npcs/${name}`);
   }
 

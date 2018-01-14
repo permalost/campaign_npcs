@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import { deleteNpc } from "../actions";
+import { deleteNpc } from '../actions';
 
 class Npc extends Component {
   onDeleteClick() {
     const { name } = this.props.match.params;
     this.props.deleteNpc(name);
-    this.props.history.push("/npcs");
+    this.props.history.push('/npcs');
   }
 
   render() {
