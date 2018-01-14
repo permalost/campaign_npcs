@@ -51,7 +51,7 @@ class Npc extends Component {
             src="img"
           />
           <CardContent>
-            <Typography component="p">{npc.notes}</Typography>
+            <Typography component="p">{npc.description}</Typography>
           </CardContent>
           <CardActions>
             <Button

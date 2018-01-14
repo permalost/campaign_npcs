@@ -54,20 +54,21 @@ class NpcNew extends Component {
         <br />
         <Field
           name="thumbnail"
-          label="Picture address"
+          label="Image address"
           placeholder="http://paizo.com/image/content/PathfinderSociety/PZOPSS0910E-Finze.jpg"
           component={TextField}
           fullWidth
         />
         <br />
         <Field
-          name="notes"
-          label="Notes"
+          name="description"
+          label="Description"
+          placeholder="This is a great guy that did stuff and definitely also did things"
           component={TextField}
           fullWidth
           required
           multiline
-          rows={5}
+          rows={3}
         />
         <br />
         <Button type="submit" color="primary">

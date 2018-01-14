@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import { GridList, GridListTile, GridListTileBar } from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
-import InfoIcon from 'material-ui-icons/Info';
 import Button from 'material-ui/Button';
+import InfoIcon from 'material-ui-icons/Info';
 
 const cellWidth = 200;
 const cellHeight = 1.4 * cellWidth;
@@ -31,7 +31,7 @@ const styles = theme => ({
     'object-fit': 'contain'
   },
   icon: {
-    color: 'rgba(255, 255, 255, 0.54)'
+    color: 'rgba(255, 255, 255, 0.7)'
   },
   btn: {
     width: 100,
@@ -43,6 +43,10 @@ class NpcList extends Component {
   onClick(event) {
     const name = event.currentTarget.getAttribute('name');
     this.props.history.push(`/npcs/${name}`);
+  }
+
+  onAddClick() {
+    this.props.history.push('/npcs/new');
   }
 
   renderList() {
@@ -68,6 +72,9 @@ class NpcList extends Component {
 
     return (
       <div className={classes.root}>
+        <Button color="primary" raised onClick={this.onAddClick.bind(this)}>
+          Add New NPC
+        </Button>
         <GridList
           className={classes.gridList}
           cellHeight={cellHeight}
@@ -75,11 +82,6 @@ class NpcList extends Component {
         >
           {this.renderList()}
         </GridList>
-        <div>
-          <Link to="/npcs/new" className="btn btn-primary">
-            Add NPC
-          </Link>
-        </div>
       </div>
     );
   }
