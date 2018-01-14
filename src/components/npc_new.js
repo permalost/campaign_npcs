@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 import { TextField } from 'redux-form-material-ui';
 import { withStyles } from 'material-ui/styles';
+import Button from 'material-ui/Button';
 
 import { createNpc } from '../actions';
 
@@ -25,6 +26,10 @@ class NpcNew extends Component {
     return this.props.createNpc(values);
   }
 
+  onCancelClick() {
+    this.props.history.push('/npcs');
+  }
+
   render() {
     const { handleSubmit } = this.props;
 
@@ -33,16 +38,18 @@ class NpcNew extends Component {
         <Field
           name="name"
           label="Name"
-          placeholder="Dummy McMeathead"
+          placeholder="John Smith"
+          required
           component={TextField}
         />
         <br />
         <Field
           name="associations"
           label="Associations"
-          placeholder="Korvosan Guard"
+          placeholder="Dockworker"
           component={TextField}
-          validate={value => (value == null ? 'Required' : undefined)}
+          required
+          validate={value => (value == 'test' ? 'Required' : undefined)}
         />
         <br />
         <Field
@@ -50,22 +57,25 @@ class NpcNew extends Component {
           label="Picture address"
           placeholder="http://paizo.com/image/content/PathfinderSociety/PZOPSS0910E-Finze.jpg"
           component={TextField}
+          fullWidth
         />
         <br />
         <Field
           name="notes"
           label="Notes"
           component={TextField}
-          multiLine={true}
+          fullWidth
+          required
+          multiline
           rows={5}
         />
         <br />
-        <button type="submit" className="btn btn-primary">
+        <Button type="submit" color="primary">
           Save
-        </button>
-        <Link to="/npcs" className="btn btn-danger pull-xs-right">
+        </Button>
+        <Button color="accent" onClick={this.onCancelClick.bind(this)}>
           Cancel
-        </Link>
+        </Button>
       </form>
     );
   }
