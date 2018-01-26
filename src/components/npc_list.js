@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import { GridList, GridListTile, GridListTileBar } from 'material-ui/GridList';
+import GridList, { GridListTile, GridListTileBar } from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import Button from 'material-ui/Button';
 import InfoIcon from 'material-ui-icons/Info';
@@ -67,6 +67,7 @@ class NpcList extends Component {
       </GridListTile>
     ));
   }
+  
   render() {
     const { classes } = this.props;
 
@@ -75,13 +76,13 @@ class NpcList extends Component {
         <Button color="primary" raised onClick={this.onAddClick.bind(this)}>
           Add New NPC
         </Button>
-        <GridList
-          className={classes.gridList}
-          cellHeight={cellHeight}
-          cols={gridListWidth / cellWidth}
-        >
-          {this.renderList()}
-        </GridList>
+		<GridList
+			  className={classes.gridList}
+			  cellHeight={cellHeight}
+			  cols={gridListWidth / cellWidth}
+		>
+			  {this.renderList()}
+		</GridList>
       </div>
     );
   }
