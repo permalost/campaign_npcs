@@ -29,7 +29,7 @@ const npcs = [
     name: 'Zellara',
     thumbnail:
       'http://static2.paizo.com/image/content/PathfinderAdventurePath/PZO1021-Zellara.jpg',
-    notes: 'Zellara Esmeranda is a talented Varisian fortune teller.',
+    description: 'Zellara Esmeranda is a talented Varisian fortune teller.',
     associations: 'none'
   },
   {
